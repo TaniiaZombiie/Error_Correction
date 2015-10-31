@@ -23,19 +23,7 @@ end
 
 # The proxy object should pass the following Koan:
 #
-class Proxy
-  def initialize(target_object)
-    @object = target_object
-    @messages = []
-  end
 
-def method_missing(method_name, *args)
-  if
-    @object.respond_to?(method_name)
-    @messages << method_name
-    @object._send_(method_name, *args)
-  end
-end
 
 class AboutProxyObjectProject < Neo::Koan
   def test_proxy_method_returns_wrapped_object
